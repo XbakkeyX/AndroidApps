@@ -1,10 +1,9 @@
 package com.example.hudzanton.myweatherapp;
 
 import android.support.v7.app.ActionBarActivity;
-import android.widget.EditText;
 import android.widget.TextView;
 
-import org.androidannotations.annotations.Click;
+import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
@@ -12,15 +11,11 @@ import org.androidannotations.annotations.ViewById;
 
 public class MainActivity extends ActionBarActivity {
 
-    @ViewById(R.id.myInput)
-    EditText myInput;
-
-    @ViewById(R.id.myTextView)
+    @ViewById
     TextView textView;
 
-    @Click
-    void myButton() {
-        String name = myInput.getText().toString();
-        textView.setText("Hello "+name);
+    @AfterViews
+    void myWeather() {
+        this.textView.setText("MyWeather");
     }
 }
